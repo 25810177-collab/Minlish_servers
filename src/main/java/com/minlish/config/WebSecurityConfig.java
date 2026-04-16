@@ -44,7 +44,7 @@ public class WebSecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->
-                session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
                 .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/api/auth/**", "/api/public/**", "/oauth2/**", "/login/oauth2/**").permitAll()
@@ -62,7 +62,11 @@ public class WebSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(resolveAllowedOrigins());
+        configuration.setAllowedOrigins(List.of(
+            "http://localhost:3000",
+            "http://localhost:5173",
+            "https://minlish-websites.vercel.app"
+    ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);

@@ -1,4 +1,4 @@
-package com.minlish.config;
+/*package com.minlish.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -10,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * Time      : 13:55
  * File      : WebConfig
  */
+/* 
 @Configuration
 public class CorsConfig implements WebMvcConfigurer {
 
@@ -23,3 +24,4 @@ public class CorsConfig implements WebMvcConfigurer {
                 .allowCredentials(true);
     }
 }
+*/
