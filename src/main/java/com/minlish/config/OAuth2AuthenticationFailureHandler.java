@@ -13,7 +13,7 @@ import java.io.IOException;
 @Component
 public class OAuth2AuthenticationFailureHandler implements AuthenticationFailureHandler {
 
-   @Value("${ui.url:https://minlish-websites-j4b1xdoxh-zr1409s-projects.vercel.app}")
+   @Value("${ui.url:https://minlish-websites.vercel.app}")
     private String uiUrl;
 
     @Override

@@ -29,7 +29,7 @@ public class OAuth2AuthenticationSuccessHandler implements AuthenticationSuccess
     private final UserService userService;
     private final JwtTokenProvider jwtTokenProvider;
 
-    @Value("${ui.url:https://minlish-websites-j4b1xdoxh-zr1409s-projects.vercel.app}")
+    @Value("${ui.url:https://minlish-websites.vercel.app}")
     private String uiUrl;
 
     @Override

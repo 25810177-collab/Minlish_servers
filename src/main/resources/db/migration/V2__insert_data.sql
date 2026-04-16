@@ -1,14 +1,11 @@
--- Thêm users (5 bản ghi)
+
 INSERT INTO users (email, password, full_name, learning_goal, level, created_at, updated_at) VALUES
 ('tranvandu1409@gmail.com', '$2a$12$Cc8rf0fJqd07Ki4UaUwOV.WqkOyZm5/I70Nii7wFVz8AwuSCsqdtW', 'Zr1409', 'IELTS', 'B1', NOW(), NOW()),
 ('user2@gmail.com', '$2a$12$Cc8rf0fJqd07Ki4UaUwOV.WqkOyZm5/I70Nii7wFVz8AwuSCsqdtW', 'Trần Thị B', 'TOEIC', 'B2', NOW(), NOW()),
 ('user3@gmail.com', '$2a$12$Cc8rf0fJqd07Ki4UaUwOV.WqkOyZm5/I70Nii7wFVz8AwuSCsqdtW', 'Lê Minh C', 'Communication', 'A2', NOW(), NOW()),
 ('user4@gmail.com', '$2a$12$Cc8rf0fJqd07Ki4UaUwOV.WqkOyZm5/I70Nii7wFVz8AwuSCsqdtW', 'Phạm Anh D', 'IELTS', 'C1', NOW(), NOW()),
 ('user5@gmail.com', '$2a$12$Cc8rf0fJqd07Ki4UaUwOV.WqkOyZm5/I70Nii7wFVz8AwuSCsqdtW', 'Hoàng Thúy E', 'TOEIC', 'B1', NOW(), NOW());
---Tao 10.000 user test từ
---python e:/minlish-servers/src/main/resources/gen_bulk_users.py
---mysql -u root -p minlish < e:/minlish-servers/src/main/resources/bulk_users.sql
--- Thêm learning_plans (mỗi user 1 cấu hình)
+
 INSERT INTO learning_plans (user_id, new_words_per_day, created_at, updated_at) VALUES
 (1, 10, NOW(), NOW()),
 (2, 12, NOW(), NOW()),
@@ -16,7 +13,6 @@ INSERT INTO learning_plans (user_id, new_words_per_day, created_at, updated_at) 
 (4, 15, NOW(), NOW()),
 (5, 10, NOW(), NOW());
 
--- Thêm vocabulary_sets (5 bản ghi)
 INSERT INTO vocabulary_sets (user_id, name, description, tags, created_at, updated_at) VALUES
 (1, 'IELTS Academic Vocabulary', 'Từ vựng học thuật thường gặp trong IELTS', 'IELTS,Academic', NOW(), NOW()),
 (1, 'Business English', 'Từ vựng dành cho môi trường công ty', 'Business,Professional', NOW(), NOW()),
@@ -24,7 +20,7 @@ INSERT INTO vocabulary_sets (user_id, name, description, tags, created_at, updat
 (3, 'Travel English', 'Từ vựng du lịch và khám phá', 'Travel,Adventure', NOW(), NOW()),
 (4, 'Technical Terms', 'Kỹ thuật và công nghệ', 'Technical,IT', NOW(), NOW());
 
--- Thêm vocabularies (mỗi bộ 5 từ = 25 bản ghi)
+
 
 INSERT INTO vocabularies (vocabulary_set_id, word, pronunciation, meaning, description, example_sentence, fixed_phrase, related_words, notes, created_at, updated_at) VALUES
 (1, 'Ubiquitous', '/juːˈbɪk.wɪ.təs/', 'Có mặt ở khắp nơi', 'Present, appearing, or found everywhere', 'Mobile phones are ubiquitous in modern society.', 'ubiquitous presence, ubiquitous technology', 'omnipresent, pervasive, widespread', 'IELTS Band 7+', NOW(), NOW()),
@@ -57,11 +53,11 @@ INSERT INTO vocabularies (vocabulary_set_id, word, pronunciation, meaning, descr
 (5, 'API', '/ˌeɪ.piː.ˈaɪ/', 'Giao diện lập trình ứng dụng', 'Interface for software communication', 'The REST API provides access to our services.', 'API endpoint, API integration', 'interface, integration, connection', 'Tech term', NOW(), NOW()),
 (5, 'Encryption', '/ɪnˈkrip.ʃən/', 'Mã hoá', 'Process of converting data into code', 'End-to-end encryption protects user privacy.', 'data encryption, encryption key', 'security, encoding, cipher', 'Tech term', NOW(), NOW());
 
--- Từ test: quá hạn ôn để kích hoạt REVIEW_DUE_REMINDER
+
 INSERT INTO vocabularies (vocabulary_set_id, word, pronunciation, meaning, description, example_sentence, fixed_phrase, related_words, notes, created_at, updated_at) VALUES
 (1, 'Recall', '/rɪˈkɔːl/', 'Ôn lại, nhớ lại', 'Seed từ quá hạn để test nhắc ôn', 'Please recall this word today.', 'recall knowledge', 'remember, review', 'Test seed', NOW(), NOW());
 
--- Thêm study_history (5 bản ghi)
+
 INSERT INTO study_history (user_id, vocabulary_id, rating, ease_factor, interval_days, next_review_date, last_review_date, repetitions, created_at) VALUES
 (1, 1, 'good', 2.50, 3, CURDATE(), CURDATE() - INTERVAL 1 DAY, 1, NOW()),
 (1, 6, 'easy', 2.50, 5, CURDATE(), CURDATE() - INTERVAL 2 DAY, 2, NOW() - INTERVAL 1 DAY),
@@ -69,7 +65,7 @@ INSERT INTO study_history (user_id, vocabulary_id, rating, ease_factor, interval
 (3, 11, 'good', 2.40, 4, CURDATE() + INTERVAL 4 DAY, CURDATE() - INTERVAL 2 DAY, 2, NOW() - INTERVAL 2 DAY),
 (4, 16, 'again', 2.20, 1, CURDATE(), CURDATE() - INTERVAL 3 DAY, 1, NOW() - INTERVAL 3 DAY);
 
--- Thêm daily_stats (7 bản ghi)
+
 INSERT INTO daily_stats (user_id, study_date, words_learned, correct_count, incorrect_count, time_spent_seconds, new_words_learned, review_success_count, review_total_count, retention_rate, study_sessions) VALUES
 (3, CURDATE() - INTERVAL 1 DAY, 7, 6, 1, 2100, 2, 3, 5, 60, 2),
 (4, CURDATE() - INTERVAL 2 DAY, 12, 10, 2, 3000, 3, 5, 5, 100, 3),
@@ -78,7 +74,7 @@ INSERT INTO daily_stats (user_id, study_date, words_learned, correct_count, inco
 (1, '2026-04-08', 1, 1, 1, 1920, 1, 1, 1, 60, 1);
 
 
--- Thêm notifications (8 bản ghi)
+
 INSERT INTO notifications (user_id, message, is_read, notification_type, created_at) VALUES
 (3, 'Chúc mừng! Bạn đã đạt 7 ngày học liên tiếp', TRUE, 'milestone', NOW() - INTERVAL 1 DAY),
 (4, 'Từ mới: Business English được thêm vào bộ từ của bạn', TRUE, 'info', NOW() - INTERVAL 2 DAY),
@@ -86,7 +82,7 @@ INSERT INTO notifications (user_id, message, is_read, notification_type, created
 (1, 'Hoàn thành phiên học\nBạn vừa học xong 5 từ, đúng 5 từ (100%).', FALSE, 'SESSION_SUMMARY', '2026-04-07'),
 (1, 'Hoàn thành phiên học\nBạn vừa học xong 5 từ, đúng 5 từ (100%).', FALSE, 'SESSION_SUMMARY', '2026-04-08');
 
--- Thêm notification_preferences (mỗi user 1 bản ghi)
+
 INSERT INTO notification_preferences (user_id, enable_daily_reminder, enable_review_reminder, enable_email_notification, reminder_time, created_at, updated_at) VALUES
 (1, TRUE, TRUE, TRUE, '08:00:00', NOW(), NOW()),
 (2, TRUE, TRUE, TRUE, '08:00:00', NOW(), NOW()),
