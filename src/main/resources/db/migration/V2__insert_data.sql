@@ -54,10 +54,6 @@ INSERT INTO vocabularies (id, vocabulary_set_id, word, pronunciation, meaning, d
 (25, 5, 'Encryption', '/ɪnˈkrip.ʃən/', 'Mã hoá', 'Process of converting data into code', 'End-to-end encryption protects user privacy.', 'data encryption, encryption key', 'security, encoding, cipher', 'Tech term', NOW(), NOW());
 
 
-INSERT INTO vocabularies (vocabulary_set_id, word, pronunciation, meaning, description, example_sentence, fixed_phrase, related_words, notes, created_at, updated_at) VALUES
-(26, 1, 'Recall', '/rɪˈkɔːl/', 'Ôn lại, nhớ lại', 'Seed từ quá hạn để test nhắc ôn', 'Please recall this word today.', 'recall knowledge', 'remember, review', 'Test seed', NOW(), NOW());
-
-
 INSERT INTO study_history (user_id, vocabulary_id, rating, ease_factor, interval_days, next_review_date, last_review_date, repetitions, created_at) VALUES
 (1, 1, 'good', 2.50, 3, CURDATE(), CURDATE() - INTERVAL 1 DAY, 1, NOW()),
 (1, 6, 'easy', 2.50, 5, CURDATE(), CURDATE() - INTERVAL 2 DAY, 2, NOW() - INTERVAL 1 DAY),
