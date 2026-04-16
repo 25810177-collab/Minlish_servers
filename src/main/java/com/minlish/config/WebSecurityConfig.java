@@ -31,7 +31,7 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public class WebSecurityConfig {
 
-    @Value("${cors.allowed.origins:http://localhost:3000,http://localhost:2910,http://localhost:5173,http://localhost:8080,http://localhost:8081}")
+    @Value("${cors.allowed.origins:https://minlish-servers-2.onrender.com,https://minlish-websites-j4b1xdoxh-zr1409s-projects.vercel.app}")
     private String allowedOrigins;
 
     private final JwtAuthenticationFilter jwtAuthFilter;
